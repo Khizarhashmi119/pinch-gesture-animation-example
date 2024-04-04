@@ -8,6 +8,7 @@ import {
 import Animated, {
   useAnimatedStyle,
   useSharedValue,
+  withTiming,
 } from "react-native-reanimated";
 
 const IMAGE_URI =
@@ -60,12 +61,12 @@ export default function App() {
   const doubleTap = Gesture.Tap()
     .numberOfTaps(2)
     .onStart(() => {
-      scale.value = 1;
-      savedScale.value = 1;
-      translateX.value = 0;
-      translateY.value = 0;
-      savedTranslateX.value = 0;
-      savedTranslateY.value = 0;
+      scale.value = withTiming(1);
+      savedScale.value = withTiming(1);
+      translateX.value = withTiming(0);
+      translateY.value = withTiming(0);
+      savedTranslateX.value = withTiming(0);
+      savedTranslateY.value = withTiming(0);
     });
 
   return (
